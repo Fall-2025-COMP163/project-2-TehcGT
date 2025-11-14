@@ -102,6 +102,7 @@ class Character:
         """
         # TODO: Print character's name, health, strength, and magic
         # Make it look nice with formatting
+        print("===== YOUR STATS ====")
         print(f"Name: {self.name}")
         print(f"Health: {self.health}")
         print(f"Strength: {self.strength}")
@@ -121,7 +122,10 @@ class Player(Character):
         # TODO: Call super().__init__() with the basic character info
         # TODO: Store the character_class (like "Warrior", "Mage", etc.)
         # TODO: Add any other player-specific attributes (level, experience, etc.)
-        pass
+        super().__init__(name, health, strength, magic)
+        self.character_class = character_class
+        self.level = 1
+        self.experience = 0
         
     def display_stats(self):
         """
