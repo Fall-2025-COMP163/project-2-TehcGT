@@ -210,6 +210,7 @@ class Mage(Player):
         # TODO: Implement fireball spell
         # Should do magic-based damage with bonus
         damage = self.magic + 5
+        target.take_damage(damage) #Google Gemini saw that I forgot to add this line of code
         print(f"HEAVY HIT! {self.name} blasts a power fireball at {target.name} for {damage} damage!")
 
 class Rogue(Player):
