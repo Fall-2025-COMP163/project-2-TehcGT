@@ -69,7 +69,7 @@ class Character:
         self.magic = magic
         
     def attack(self, target):
-        """
+        """ 
         Basic attack method that all characters can use.
         This method should:
         1. Calculate damage based on strength
@@ -79,7 +79,9 @@ class Character:
         # TODO: Implement basic attack
         # Damage should be based on self.strength
         # Use target.take_damage(damage) to apply damage
-        pass
+        damage = self.strength
+        target.take_damage(damage)
+        print(f"{self.name} attacks {target.name} for {damage} damage!")
         
     def take_damage(self, damage):
         """
