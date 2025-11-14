@@ -175,7 +175,7 @@ class Warrior(Player):
         # Should do significantly more damage than regular attack
         damage = self.strength + 10
         target.take_damage(damage)
-        print(f"CRITICAL HIT! {self.name} uses a Powerful Strike on {target.name} for {damage} damage!")
+        print(f"HEAVY HIT! {self.name} uses a Powerful Strike on {target.name} for {damage} damage!")
 
 class Mage(Player):
     """
@@ -210,7 +210,7 @@ class Mage(Player):
         # TODO: Implement fireball spell
         # Should do magic-based damage with bonus
         damage = self.magic + 5
-        print(f"CRITICAL HIT! {self.name} blasts a power fireball at {target.name} for {damage} damage!")
+        print(f"HEAVY HIT! {self.name} blasts a power fireball at {target.name} for {damage} damage!")
 
 class Rogue(Player):
     """
@@ -225,7 +225,7 @@ class Rogue(Player):
         """
         # TODO: Call super().__init__() with rogue-appropriate stats
         # Suggested stats: health=90, strength=12, magic=10
-        pass
+        super().__init__(name, "Rogue", 90, 12, 10)
         
     def attack(self, target):
         """
@@ -235,7 +235,14 @@ class Rogue(Player):
         # TODO: Implement rogue attack
         # Could add a chance for critical hit (double damage)
         # Hint: use random.randint(1, 10) and if result <= 3, it's a crit
-        pass
+        crit_chance = random.randint(1, 10)
+        if crit_chance <= 3:
+            damage = self.strength * 2
+            print(f"CRITICAL HIT! {self.name} strikes {target.name} for {damage} damage!")
+        else:
+            damage = self.strength
+            print(f"{self.name} swiftly attacks {target.name} for {damage} damage!")
+        target.take_damage(damage)
         
     def sneak_attack(self, target):
         """
@@ -243,7 +250,9 @@ class Rogue(Player):
         """
         # TODO: Implement sneak attack
         # Should always do critical damage
-        pass
+        damage = self.strength * 2
+        target.take_damage(damage)
+        print(f"{self.name} sneaks up on {target.name} for a strike dealing {damage} damage!")
 
 class Weapon:
     """
@@ -256,15 +265,16 @@ class Weapon:
         Create a weapon with a name and damage bonus.
         """
         # TODO: Store weapon name and damage bonus
-        pass
+        self.name = name
+        self.damage_bonus = damage_bonus
         
     def display_info(self):
         """
         Display information about this weapon.
         """
         # TODO: Print weapon name and damage bonus
-        pass
-
+        print(f"Weapon: {self.name}")
+        print(f"Damage Bonus: {self.damage_bonus}")
 # ============================================================================
 # MAIN PROGRAM FOR TESTING (YOU CAN MODIFY THIS FOR TESTING)
 # ============================================================================
