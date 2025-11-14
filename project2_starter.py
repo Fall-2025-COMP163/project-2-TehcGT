@@ -175,7 +175,7 @@ class Warrior(Player):
         # Should do significantly more damage than regular attack
         damage = self.strength + 10
         target.take_damage(damage)
-        print(f"CRITICAL HIT! {self.name} uses Power Strike on {target.name} for {damage} damage!")
+        print(f"CRITICAL HIT! {self.name} uses a Powerful Strike on {target.name} for {damage} damage!")
 
 class Mage(Player):
     """
