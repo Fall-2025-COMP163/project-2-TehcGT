@@ -145,3 +145,6 @@ Feel free to add your own creative touches for bonus points:
 - Additional character classes beyond the three required
 - More weapon types with different properties
 - Enhanced special abilities with unique effects
+
+
+This Python script builds different types of characters for a game, like Warriors, Mages, and Rogues, using a "blueprint" system. It starts with a basic Character blueprint, which is copied by a Player blueprint to add features like level. Then, the Warrior, Mage, and Rogue blueprints copy the Player and add their own unique stats. Each class attacks differently even when using the same attack method—Warriors use extra strength, Mages use magic, and Rogues have a random chance for a "critical hit." Each class also gets a special move: the Warrior's power_strike, the Mage's fireball, and the Rogue's sneak_attack. A separate Weapon blueprint is also included to show that a character can "have" a weapon, which is different from a Warrior "is-a" Player. Google Gemini helped with this project by finding two bugs (a missing import random and a fireball attack that didn't do damage) and by explaining core codes like self, __init__, and super(). You can run this code by saving it as character_abilities.py and typing python character_abilities.py in your terminal, which will start a test to show all the characters in action.
